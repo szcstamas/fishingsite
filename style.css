@@ -1,0 +1,299 @@
+:root {
+
+    --transition: 0.6s;   
+}
+
+
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+
+    font-size: 5rem;
+}
+
+h2 {
+
+    letter-spacing: 1px;
+}
+
+header {
+
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
+header h1 {
+
+    font-size: 2rem;
+}
+
+.max-size {
+
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+header nav ul {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+header nav ul li {
+
+    text-decoration: none;
+    color: #000;
+}
+
+.header-ins {
+
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-ins a {
+
+    text-decoration: none;
+    color: #000;
+}
+
+.headerblur {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+section {
+
+    padding: 20px 0px;
+}
+
+#hero {
+
+    height: 100vh;
+}
+
+#hero::before {
+
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://images.pexels.com/photos/2172499/pexels-photo-2172499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    filter: opacity(0.8);
+    z-index: -1;
+}
+
+.section-ins {
+
+    margin-top: 5rem;
+}
+
+.section-text {
+
+    text-align: center;
+    margin: 20px auto;
+    color: #fff;
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 0.253);
+}
+
+.flex-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.flex-item {
+
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.flex-item .circle {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.flex-item .circle::before {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.233);
+    clip-path: circle(120px at center);
+    transition: var(--transition);
+}
+
+.flex-item:hover .circle::before
+{
+    background: rgba(0, 0, 0, 0.6);
+    clip-path: circle(400px at center);
+
+}
+
+.flex-item:hover .circle {
+
+    height: 80%;
+}
+
+.flex-item img {
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    pointer-events: none;
+    transition: var(--transition);
+    filter: drop-shadow(0px 10px 10px rgba(56, 56, 56, 0.8));
+}
+
+.flex-item:hover img {
+
+    top: 90%;
+}
+
+.flex-item .content {
+
+    position: relative;
+    width: 100%;
+    top: 20%;
+    padding: 25px;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    color: #fff;
+    font-weight: 500;
+}
+
+.flex-item:hover .content {
+
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.flex-item .content h2 {
+
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.flex-item .content p {
+
+    margin: 10px 0px 20px 0px;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+.flex-item .content a {
+
+    position: absolute;
+    left: 25px;
+    margin: 0 auto;
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 800;
+    width: 250px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.flex-item .content a:hover {
+
+    background: #000;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.flex-item .content-subtext {
+
+    position: absolute;
+    bottom: -27%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
+    transition: var(--transition);
+    background: rgba(0, 0, 0, 0.699);
+    width: 240px;
+    height: auto;
+    padding: 10px 0px;
+    color: #fff;
+}
+
+.flex-item:hover .content-subtext {
+
+    visibility: hidden;
+    bottom: -30%;
+    opacity: 0;
+}
+
+.flex-item .content-subtext h3 {
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 32px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.flex-item .content-subtext .product-type {
+
+    opacity: 0.75;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.flex-item .content-subtext .product-price {
+
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
